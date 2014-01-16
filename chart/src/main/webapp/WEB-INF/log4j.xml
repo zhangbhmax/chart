@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<log4j:configuration>
+
+	<!-- 标准输入输出 -->
+	<appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="stdout: |%-5p| %m | %d{yyyy-MM-dd HH:mm:ssS} | %l %n" />
+		</layout>
+	</appender>
+
+
+	<!-- 输出到liandisys.log文件中 -->
+	<appender name="chart" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${catalina.home}/logs/chart.log" />
+		<param name="MaxFileSize" value="10485760" />
+		<param name="MaxBackupIndex" value="1" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="charts: |%-5p| %m | %d{yyyy-MM-dd HH:mm:ssS} | %l %n" />
+		</layout>
+	</appender>
+
+	<!--ibatis SQL配置 -->
+	<appender name="ibatis" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${catalina.home}/logs/ibatis_sql.log" />
+		<param name="MaxFileSize" value="10485760" />
+		<param name="MaxBackupIndex" value="1" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="Ibatis SQL: |%-5p| %m | %d{yyyy-MM-dd HH:mm:ssS} | %l %n" />
+		</layout>
+	</appender>
+	
+	<!--Spring 配置 -->
+	<appender name="spring" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${catalina.home}/logs/spring.log" />
+		<param name="MaxFileSize" value="10485760" />
+		<param name="MaxBackupIndex" value="1" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="Spring: |%-5p| %m | %d{yyyy-MM-dd HH:mm:ssS} | %l %n" />
+		</layout>
+	</appender>
+	
+
+	<!-- ibatis -->
+	<category name="java.sql.PreparedStatement" additivity="false">
+		<priority value="debug" />
+		<appender-ref ref="ibatis" />
+	</category>
+	<category name="java.sql.Statement" additivity="false">
+		<priority value="debug" />
+		<appender-ref ref="ibatis" />
+	</category>
+	<category name="java.sql.ResultSet" additivity="false">
+		<priority value="debug" />
+		<appender-ref ref="ibatis" />
+	</category>
+
+	<!-- spring -->
+	<category name="org.springframework" additivity="true">
+		<priority value="info" />
+		<appender-ref ref="spring" />
+	</category>
+	
+
+	<!-- 配置com.liandisys包日志输出 -->
+	<category name="com.chart" additivity="false">
+		<priority value="error" />
+		<appender-ref ref="chart" />
+	</category>
+	
+
+	<root>
+		<priority value="info" />
+		<appender-ref ref="stdout" />
+	</root>
+
+</log4j:configuration>
