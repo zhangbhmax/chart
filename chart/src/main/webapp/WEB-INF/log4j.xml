@@ -11,7 +11,7 @@
 	</appender>
 
 
-	<!-- 输出到liandisys.log文件中 -->
+	<!-- 输出到chart.log文件中 -->
 	<appender name="chart" class="org.apache.log4j.RollingFileAppender">
 		<param name="File" value="${catalina.home}/logs/chart.log" />
 		<param name="MaxFileSize" value="10485760" />

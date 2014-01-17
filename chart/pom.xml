@@ -22,9 +22,9 @@
 			<scope>test</scope>
 		</dependency>
 <dependency>
-    <groupId>com.servlets</groupId>
+    <groupId>servlets.com</groupId>
     <artifactId>cos</artifactId>
-    <version>09May2002</version>
+    <version>05Nov2002</version>
 </dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
