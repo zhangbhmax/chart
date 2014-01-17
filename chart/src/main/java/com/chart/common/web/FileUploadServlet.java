@@ -25,16 +25,12 @@ public class FileUploadServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		super.doGet(request, response);
 		fileService.fileUpload(request);
-		System.out.println("**********************");
-
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		super.doPost(request, response);
 		doGet(request, response);
 	}
 

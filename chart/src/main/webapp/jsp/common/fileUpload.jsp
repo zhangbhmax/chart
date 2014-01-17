@@ -8,8 +8,9 @@
 </head>
 <body>
 	<div>
-		<form id="fileForm" enctype="multipart/form-data">
-			
+		<form id="fileForm" method="post" action="${ctx}common/web/upload.do" enctype="multipart/form-data">
+			<input type="file" id="file" name="file"/>
+			<input type="submit" value="上传"/>
 		</form>
 	</div>
 </body>
