@@ -1,5 +1,7 @@
 package com.chart.base.dao.impl;
 
+import java.sql.SQLException;
+
 import org.springframework.stereotype.Repository;
 
 import com.chart.base.bean.User;
@@ -11,7 +13,12 @@ import com.chart.common.dao.BaseDao;
 public class UserDaoImpl extends BaseDao implements UserDao {
 
 	public void addUser(User user) {
-		getSqlMapClientTemplate().insert("user.addUser", user);
+		try {
+			getSqlMapClient().insert("user.addUser", user);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -24,6 +31,21 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 	public User getUser(String userName) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void deleteUser(User user) {
+		try {
+			getSqlMapClient().delete("user.deleteUser", user);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void modifyUser(User user) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

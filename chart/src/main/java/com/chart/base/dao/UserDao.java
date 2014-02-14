@@ -9,7 +9,17 @@ public interface UserDao {
 	 * @param user
 	 */
 	void addUser(User user);
+	/**
+	 * 删除用户
+	 * @param user
+	 */
+	void deleteUser(User user);
 	
+	/**
+	 * 修改用户
+	 * @param user
+	 */
+	void modifyUser(User user);
 	/**
 	 * 用户分页查询
 	 * @param user
