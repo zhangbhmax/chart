@@ -33,4 +33,11 @@ public interface UserDao {
 	 * @return
 	 */
 	User getUser(String userName);
+	
+	/**
+	 * 根据用户Id查询用户信息
+	 * @param id
+	 * @return
+	 */
+	User getUser(Integer id);
 }
